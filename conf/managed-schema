@@ -23,6 +23,17 @@
   <!-- Facet Fields -->
   <field name="program" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
+  <!-- General Search Fields -->
+  <field name="text" type="text_general" indexed="true" stored="false" multiValued="true" />
+
+  <!-- Copy Fields to General Search -->
+  <copyField source="title" dest="text" />
+  <copyField source="author" dest="text" />
+  <copyField source="id" dest="text" />
+  <copyField source="alternate_isbns" dest="text" />
+  <copyField source="bar_code" dest="text" />
+  <copyField source="course" dest="text" />
+
   <uniqueKey>id</uniqueKey>
 
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />

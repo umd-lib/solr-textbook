@@ -7,11 +7,11 @@
 
   <!-- Common Fields -->
   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-  <field name="course" type="text_general" indexed="true" stored="true" required="true" multivalued="false" />
-  <field name="title" type="text_general" indexed="true" stored="true" required="true" multivalued="false" />
-  <field name="edition" type="string" indexed="true" stored="true" multivalued="false" />
+  <field name="course" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="title" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="edition" type="string" indexed="true" stored="true" multiValued="false" />
   <field name="year" type="int" indexed="true" stored="true" multiValued="false" />
-  <field name="author" type="text_general" indexed="true" stored="true" multivalued="false" />
+  <field name="author" type="text_general" indexed="true" stored="true" multiValued="false" />
   <field name="isbn" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="call_number" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="bar_code" type="int" indexed="true" stored="true" required="true" multiValued="true" />
@@ -22,7 +22,7 @@
   <field name="test_notes" type="string" indexed="false" stored="true" multiValued="true"/>
 
   <!-- Facet Fields -->
-  <field name="program" type="string" indexed="true" stored="true" required="true" multivalued="false" />
+  <field name="program" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
   <uniqueKey>id</uniqueKey>
 
@@ -269,7 +269,7 @@
   <dynamicField name="*_point" type="point"  indexed="true"  stored="true"/>
   <fieldType name="point" class="solr.PointType" dimension="2" subFieldSuffix="_d"/>
 
-  <!-- A specialized field for geospatial search. If indexed, this fieldType must not be multivalued. -->
+  <!-- A specialized field for geospatial search. If indexed, this fieldType must not be multiValued. -->
   <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_coordinate"/>
 
   <!-- An alternative geospatial field type new to Solr 4.  It supports multiValued and polygon shapes.

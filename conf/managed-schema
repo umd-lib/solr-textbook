@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- Textbook Availability Schema
+     View README for ingest information -->
 <schema name="textbook-availability" version="1.6">
   <field name="_version_" type="long" indexed="false" stored="false"/>
   <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
   <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
   <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
-  <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+  <!-- Core fields
+  <field name="isbn" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="course" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="title" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="edition" type="string" indexed="true" stored="true" multiValued="false" />
@@ -29,12 +32,13 @@
   <!-- Copy Fields to General Search -->
   <copyField source="title" dest="text" />
   <copyField source="author" dest="text" />
-  <copyField source="id" dest="text" />
+  <copyField source="isbn" dest="text" />
   <copyField source="alternate_isbns" dest="text" />
   <copyField source="bar_code" dest="text" />
   <copyField source="course" dest="text" />
+  <copyField source="year" dest="text" />
 
-  <uniqueKey>id</uniqueKey>
+  <uniqueKey>isbn</uniqueKey>
 
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />
   <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true" />
@@ -71,12 +75,7 @@
     </analyzer>
   </fieldType>
 
-  <!-- A general text field that has reasonable, generic
-       cross-language defaults: it tokenizes with StandardTokenizer,
-      removes stop words from case-insensitive "stopwords.txt"
-      (empty by default), and down cases.  At query time only, it
-      also applies synonyms.
-   -->
+  <!-- A general text field that has reasonable, generic rules -->
   <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
     <analyzer type="index">
       <tokenizer class="solr.StandardTokenizerFactory"/>
@@ -94,11 +93,7 @@
     </analyzer>
   </fieldType>
 
-  <!-- A text field with defaults appropriate for English: it
-       tokenizes with StandardTokenizer, removes English stop words
-       (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
-       finally applies Porter's stemming.  The query time analyzer
-       also applies synonyms from synonyms.txt. -->
+  <!-- A text field with defaults appropriate for English -->
   <dynamicField name="*_txt_en" type="text_en"  indexed="true"  stored="true"/>
   <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
     <analyzer type="index">
@@ -115,9 +110,6 @@
       <filter class="solr.LowerCaseFilterFactory"/>
       <filter class="solr.EnglishPossessiveFilterFactory"/>
       <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-      <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
-      <filter class="solr.EnglishMinimalStemFilterFactory"/>
-     -->
       <filter class="solr.PorterStemFilterFactory"/>
     </analyzer>
     <analyzer type="query">
@@ -130,22 +122,11 @@
       <filter class="solr.LowerCaseFilterFactory"/>
       <filter class="solr.EnglishPossessiveFilterFactory"/>
       <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-      <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
-      <filter class="solr.EnglishMinimalStemFilterFactory"/>
-     -->
       <filter class="solr.PorterStemFilterFactory"/>
     </analyzer>
   </fieldType>
 
-  <!-- A text field with defaults appropriate for English, plus
-       aggressive word-splitting and autophrase features enabled.
-       This field is just like text_en, except it adds
-       WordDelimiterFilter to enable splitting and matching of
-       words on case-change, alpha numeric boundaries, and
-       non-alphanumeric chars.  This means certain compound word
-       cases will work, for example query "wi fi" will match
-       document "WiFi" or "wi-fi".
-  -->
+  <!-- A text field with defaults appropriate for English, plus aggressive word-splitting and autophrase features enabled. -->
   <dynamicField name="*_txt_en_split" type="text_en_splitting"  indexed="true"  stored="true"/>
   <fieldType name="text_en_splitting" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
     <analyzer type="index">

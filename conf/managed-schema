@@ -7,7 +7,7 @@
   <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
   <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
-  <!-- Core fields
+  <!-- Core fields -->
   <field name="isbn" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="course" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="title" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />

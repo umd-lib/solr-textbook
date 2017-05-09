@@ -1031,20 +1031,6 @@
   </requestHandler>
 
 
-  <!-- Query Elevation Component
-
-       http://wiki.apache.org/solr/QueryElevationComponent
-
-       a search component that enables you to configure the top
-       results for a given query regardless of the normal lucene
-       scoring.
-    -->
-  <searchComponent name="elevator" class="solr.QueryElevationComponent" >
-    <!-- pick a fieldType to analyze queries -->
-    <str name="queryFieldType">string</str>
-    <str name="config-file">elevate.xml</str>
-  </searchComponent>
-
   <!-- A request handler for demonstrating the elevator component -->
   <requestHandler name="/elevate" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
@@ -1184,7 +1170,7 @@
        
        See http://wiki.apache.org/solr/GuessingFieldTypes
     -->
-  <updateRequestProcessorChain name="add-unknown-fields-to-the-schema">
+  <updateRequestProcessorChain name="uuid">
     <!-- UUIDUpdateProcessorFactory will generate an id if none is present in the incoming document -->
     <processor class="solr.UUIDUpdateProcessorFactory">
       <str name="fieldName">id</str>

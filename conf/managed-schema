@@ -10,8 +10,8 @@
 
   <!-- Core fields -->
   <field name="isbn" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-  <field name="course" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
-  <field name="title" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="course" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="title" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="edition" type="string" indexed="true" stored="true" multiValued="false" />
   <field name="year" type="int" indexed="true" stored="true" multiValued="false" />
   <field name="author" type="text_general" indexed="true" stored="true" multiValued="false" />

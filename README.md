@@ -7,7 +7,7 @@ Textbook Availability Solr core configuration repository.
 Check out this repository to the `cores` directory of the solr installation.
 
 ```
-git clone git@bitbucket.org:umd-lib/textbook-core.git
+git clone git@bitbucket.org:umd-lib/textbook-core.git textbook
 ```
 
 This is a 6.x core utilizing a managed schema.

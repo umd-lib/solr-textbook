@@ -16,21 +16,22 @@ Reindexing Textbook Availabilty Data
 =======================
 1. Examine the delivered Top Textbooks Excel spreadsheet and look for data errors. For example, in the demo sheet, data for "Year" and "Edition" was sometimes swapped. If any errors are minor, feel free to adjust and continue. Otherwise, we should reach out and request repaired data. Note that we only care about the "Full List" spreadsheet tab. If we receive a spreadsheet without such a tab or fields that do not match the following (below), we may need to request clarification or an update.
 Expected Fields:
-* Course
-* Program
-* Title
-* Edition
-* Year
-* Author
-* ISBN
-* Alternate ISBNs
-* Call Number
-* Barcode
-* Current Status
-* New/Returning/Past Semester
-* UMCP copy?
-* Comment
-* Test notes
+- Course
+- Program
+- Title
+- Edition
+- Year
+- Author
+- ISBN
+- Alternate ISBNs
+- Call Number
+- Barcode
+- Current Status
+- New/Returning/Past Semester
+- UMCP copy?
+- Comment
+- Test notes
+Note: The Comment and Test notes fields were likely only included for the demo data. It should not be a problem if these fields are not included in the updated spreadsheet.
 
 2. Assuming all data is correct or fixed, export the spreadsheet to CSV and place somewhere easily accessible from the command line.
 

@@ -39,7 +39,7 @@ Reindexing Textbook Availabilty Data
 
 1. Clear current "textbook" index. For this, you could adjust the URL and apply the following string:
 
-	curl https://path/to/solr6/textbook/update -H "Content-Type: text/xml" --data-binary '<delete><query>*:*</query></delete>'
+	curl https://path/to/solr6/textbook/update -H "Content-Type: text/xml" --data-binary '<delete><query>\*:\*</query></delete>'
 
 1. Load the updated data by adjusting the URL and applying the following command:
 

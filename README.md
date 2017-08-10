@@ -32,14 +32,14 @@ Reindexing Textbook Availabilty Data
 		* UMCP copy?
 		* Comment
 		* Test notes
-1. Assuming all data is correct or fixed, export the spreadsheet to CSV and place somewhere easily accessible from the command line.
+1. Assuming all data is correct or fixed, export the spreadsheet to CSV and place somewhere easily accessible from the command line. For the export, I recommend using Excel's "Windows Comma Separated (.csv)" format over the MS-DOS option. Open the file afterwards to ensure there is no odd formatting, such as the lines running together.
 1. Open the CSV in a text editor and replace header row with a row matching the Solr schema fields. By this, you can simply delete the first row and replace it with the following (assuming no change in fields):
 
 	course,program,title,edition,year,author,isbn,alternate_isbns,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,comment,test_notes
 
 1. Clear current "textbook" index. For this, you could adjust the URL and apply the following string:
 
-	curl https://path/to/solr6/textbook/update -H "Content-Type: text/xml" --data-binary '<delete><query>\*:\*</query></delete>'
+	curl https://path/to/solr6/textbook/update?commit=true -H "Content-Type: text/xml" --data-binary '<delete><query>\*:\*</query></delete>'
 
 1. Load the updated data by adjusting the URL and applying the following command:
 

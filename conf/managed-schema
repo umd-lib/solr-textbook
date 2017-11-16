@@ -9,7 +9,7 @@
   <field name="id" type="uuid" indexed="true" stored="true" />
 
   <!-- Core fields -->
-  <field name="isbn" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="isbn" type="string" indexed="true" stored="true" multiValued="false" />
   <field name="course" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="title" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="edition" type="string" indexed="true" stored="true" multiValued="false" />
@@ -17,7 +17,7 @@
   <field name="author" type="text_general" indexed="true" stored="true" multiValued="false" />
   <field name="alternate_isbns" type="text_general" indexed="true" stored="true" multiValued="true"/>
   <field name="call_number" type="string" indexed="true" stored="true" multiValued="true"/>
-  <field name="bar_code" type="text_general" indexed="true" stored="true" required="true" multiValued="true" />
+  <field name="bar_code" type="text_general" indexed="true" stored="true" multiValued="true" />
   <field name="current_status" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="new_returning_past_semester" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="umcp_copy" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -35,9 +35,10 @@
   <copyField source="author" dest="text" />
   <copyField source="isbn" dest="text" />
   <copyField source="alternate_isbns" dest="text" />
-  <copyField source="bar_code" dest="text" />
   <copyField source="course" dest="text" />
   <copyField source="year" dest="text" />
+  <copyField source="program" dest="text" />
+  <copyField source="edition" dest="text" />
 
   <fieldType name="uuid" class="solr.UUIDField" indexed="true" />
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />

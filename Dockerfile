@@ -1,4 +1,4 @@
-FROM solr:8.1.1
+FROM solr:8.1.1 as builder
 # Switch to root user
 USER root
 # Install xmlstarlet
@@ -27,3 +27,15 @@ RUN /opt/solr/bin/solr start && sleep 3 && \
     curl 'http://localhost:8983/solr/textbook/update?commit=true&header=true&fieldnames=course,program,title,edition,year,author,isbn,alternate_isbns,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,test_notes,comment&f.isbn.split=true&f.call_number.split=true&f.bar_code.split=true' \
         --data-binary @/tmp/data.csv -H 'Content-type:application/csv'&& \
     /opt/solr/bin/solr stop
+    
+FROM solr:8.1.1-slim
+
+ENV SOLR_HOME=/apps/solr/data
+
+USER root
+RUN mkdir -p /apps/solr/ && \
+    cp -r /var/solr/data /apps/solr/data && \
+    chown -R solr:0 "$SOLR_HOME"
+
+USER solr
+COPY --from=builder /apps/solr/ /apps/solr/

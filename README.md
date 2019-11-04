@@ -94,3 +94,7 @@ To run the freshly built Docker container on port 8983:
 ```
 > docker run -it --rm -p 8983:8983 textbook
 ```
+
+## License
+
+See the [LICENSE](LICENSE.txt) file for license rights and limitations.

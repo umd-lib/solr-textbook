@@ -1229,7 +1229,25 @@
     <processor class="solr.DistributedUpdateProcessorFactory"/>
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>
-
+     <updateRequestProcessorChain name="trim-program" default="true">
+      <processor class="solr.CloneFieldUpdateProcessorFactory">
+          <str name="source">course</str>
+          <str name="dest">program</str>
+        </processor>
+        <processor class="solr.RegexReplaceProcessorFactory">
+           <str name="fieldName">program</str>
+           <str name="pattern">([0-9])</str>
+           <str name="replacement"></str>
+        </processor>
+        <processor class="solr.RegexReplaceProcessorFactory">
+           <str name="fieldName">program</str>
+           <str name="pattern"> </str>
+           <str name="replacement"></str>
+        </processor>
+        <processor class="solr.LogUpdateProcessorFactory"/>
+        <processor class="solr.DistributedUpdateProcessorFactory"/>
+        <processor class="solr.RunUpdateProcessorFactory"/>
+  </updateRequestProcessorChain>
   <!-- Deduplication
 
        An example dedup update processor that creates the "id" field

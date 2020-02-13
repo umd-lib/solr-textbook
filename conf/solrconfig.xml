@@ -1229,8 +1229,7 @@
     <processor class="solr.DistributedUpdateProcessorFactory"/>
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>
-  </updateRequestProcessorChain>
-    <updateRequestProcessorChain name="trim-program" default="true">
+  <updateRequestProcessorChain name="trim-program" default="true">
     <processor class="solr.CloneFieldUpdateProcessorFactory">
         <str name="source">course</str>
         <str name="dest">program</str>

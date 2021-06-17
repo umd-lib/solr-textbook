@@ -86,6 +86,8 @@ The validation occurs automatically as part of the Docker image build, but if yo
 docker run -it --rm -v `pwd`/data.csv:/tmp/data.csv -v `pwd`/data.csvs:/tmp/data.csvs docker.lib.umd.edu/csv-validator:1.1.5-umd-0 validate /tmp/data.csv /tmp/data.csvs
 ```
 
+See [CVS Schema Language](http://digital-preservation.github.io/csv-schema/csv-schema-1.1.html) for more information about validation rules you can add to [data.csvs](data.csvs).
+
 ## Building the Docker Image for Testing
 
 When building the Docker image, the "data.csv" file will be used to populate

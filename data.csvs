@@ -1,0 +1,16 @@
+version 1.0
+@totalColumns 14
+Course: notEmpty
+Title: notEmpty
+Edition:
+Year:
+Author:
+ISBN:
+"Alternate ISBNs":
+"Call number":
+Barcode:
+"Current Status":
+Unknown:
+"UMCP copy?":
+Notes:
+Comment:

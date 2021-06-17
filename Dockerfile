@@ -1,3 +1,13 @@
+# Validate data.csv using csv-validator 1.1.5
+# https://digital-preservation.github.io/csv-validator/
+FROM docker.lib.umd.edu/csv-validator:1.1.5-umd-0 as validator
+
+#COPY --from=cleaner /tmp/clean.csv /tmp/clean.csv
+COPY data.csv /tmp/data.csv
+COPY data.csvs /tmp/data.csvs
+
+RUN validate /tmp/data.csv /tmp/data.csvs
+
 FROM solr:8.1.1 as builder
 # Switch to root user
 USER root
@@ -20,14 +30,14 @@ RUN /opt/solr/bin/solr start && \
 # # Replace the schema file
 COPY conf /apps/solr/data/textbook/conf/
 # Add the data to be loaded
-ADD data.csv /tmp/data.csv
+COPY --from=validator /tmp/data.csv /tmp/data.csv
 # Load the data to textbook core
 RUN /opt/solr/bin/solr start && sleep 3 && \
     curl 'http://localhost:8983/solr/textbook/update?commit=true' -H 'Content-Type: text/xml' --data-binary '<delete><query>*:*</query></delete>' && \
     curl 'http://localhost:8983/solr/textbook/update?commit=true&header=true&fieldnames=course,title,edition,year,author,isbn,alternate_isbns,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,test_notes,comment&f.isbn.split=true&f.call_number.split=true&f.bar_code.split=true' \
         --data-binary @/tmp/data.csv -H 'Content-type:application/csv'&& \
     /opt/solr/bin/solr stop
-    
+
 FROM solr:8.1.1-slim
 
 ENV SOLR_HOME=/apps/solr/data

@@ -78,6 +78,14 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
 
 4) Copy the CSV file into this repository as "data.csv".
 
+## Validating the data.csv file
+
+The validation occurs automatically as part of the Docker image build, but if you want to run it manually, execute:
+
+```bash
+docker run -it --rm -v `pwd`/data.csv:/tmp/data.csv -v `pwd`/data.csvs:/tmp/data.csvs docker.lib.umd.edu/csv-validator:1.1.5-umd-0 validate /tmp/data.csv /tmp/data.csvs
+```
+
 ## Building the Docker Image for Testing
 
 When building the Docker image, the "data.csv" file will be used to populate

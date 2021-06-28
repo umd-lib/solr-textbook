@@ -26,21 +26,20 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
    a spreadsheet without such a tab or fields that do not match the following
    (below), we may need to request clarification or an update.
 
-   * Expected Fields
+   * Expected Columns
      * Course
-     * Program
      * Title
      * Edition
      * Year
      * Author
      * ISBN
      * Alternate ISBNs
-     * Call Number
+     * Call number
      * Barcode
      * Current Status
      * New/Returning/Past Semester
      * UMCP copy?
-     * Test notes
+     * Notes
      * Comment
 
 2) Assuming all data is correct or fixed, export the spreadsheet to CSV and

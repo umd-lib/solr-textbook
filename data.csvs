@@ -1,0 +1,16 @@
+version 1.0
+@totalColumns 14
+Course: notEmpty regex("[A-Z]{4} [0-9]{3}[A-Z]?( *\([0-9]{3}[A-Z]?(, * [0-9]{3}[A-Z]?)?\))?")
+Title: notEmpty
+Edition:
+Year:
+Author:
+ISBN:
+"Alternate ISBNs":
+"Call number":
+Barcode:
+"Current Status":
+"New/Returning/Past Semester":
+"UMCP copy?":
+Notes:
+Comment:

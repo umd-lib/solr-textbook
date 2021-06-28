@@ -26,21 +26,20 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
    a spreadsheet without such a tab or fields that do not match the following
    (below), we may need to request clarification or an update.
 
-   * Expected Fields
+   * Expected Columns
      * Course
-     * Program
      * Title
      * Edition
      * Year
      * Author
      * ISBN
      * Alternate ISBNs
-     * Call Number
+     * Call number
      * Barcode
      * Current Status
      * New/Returning/Past Semester
      * UMCP copy?
-     * Test notes
+     * Notes
      * Comment
 
 2) Assuming all data is correct or fixed, export the spreadsheet to CSV and
@@ -77,6 +76,16 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
      "rebrand.ly/a3acb"
 
 4) Copy the CSV file into this repository as "data.csv".
+
+## Validating the data.csv file
+
+The validation occurs automatically as part of the Docker image build, but if you want to run it manually, execute:
+
+```bash
+docker run -it --rm -v `pwd`/data.csv:/tmp/data.csv -v `pwd`/data.csvs:/tmp/data.csvs docker.lib.umd.edu/csv-validator:1.1.5-umd-0 validate /tmp/data.csv /tmp/data.csvs
+```
+
+See [CVS Schema Language](http://digital-preservation.github.io/csv-schema/csv-schema-1.1.html) for more information about validation rules you can add to [data.csvs](data.csvs).
 
 ## Building the Docker Image for Testing
 

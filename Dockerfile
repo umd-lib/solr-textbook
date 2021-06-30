@@ -1,3 +1,14 @@
+# Add auto-generated synonyms
+FROM python:3.8 as synonyms
+
+# Add the files
+COPY data.csv /tmp/data.csv
+COPY conf/synonyms.txt /tmp/synonyms.txt
+COPY scripts/synonyms.py /tmp/synonyms.py
+
+# Generate the synonyms
+RUN python /tmp/synonyms.py --infile=/tmp/data.csv --outfile=/tmp/synonyms.txt
+
 # Validate data.csv using csv-validator 1.1.5
 # https://digital-preservation.github.io/csv-validator/
 FROM docker.lib.umd.edu/csv-validator:1.1.5-umd-0 as validator
@@ -36,6 +47,7 @@ RUN /opt/solr/bin/solr start && \
 
 # Replace the schema file
 COPY conf /apps/solr/data/textbook/conf/
+COPY --from=synonyms /tmp/synonyms.txt /apps/solr/data/textbook/conf/synonyms.txt
 
 # Add the data to be loaded
 COPY --from=validator /tmp/data.csv /tmp/data.csv

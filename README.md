@@ -27,6 +27,7 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
    (below), we may need to request clarification or an update.
 
    * Expected Columns
+     * UniqueID
      * Course
      * Title
      * Edition
@@ -54,7 +55,7 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
   it with the following (assuming no change in fields):
 
   ```
-  course,title,edition,year,author,isbn,alternate_isbns,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,test_notes,comment
+  uniqueid,course,title,edition,year,author,isbn,alternate_isbns,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,test_notes,comment
   ```
 
   Also do the following:

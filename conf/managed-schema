@@ -9,6 +9,7 @@
   <field name="id" type="uuid" indexed="true" stored="true" />
 
   <!-- Core fields -->
+  <field name="uniqueid" type="string" indexed="true" stored="true" multiValued="false" />
   <field name="isbn" type="string" indexed="true" stored="true" multiValued="false" />
   <field name="course" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="title" type="string" indexed="true" stored="true" required="true" multiValued="false" />

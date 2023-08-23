@@ -112,7 +112,7 @@ Solr will then be available at [http://localhost:8983/](http://localhost:8983/).
 When building the Docker image for deployment, do the following:
 
 ```
-> docker build --no-cache -t docker.lib.umd.edu/solr-textbook:<VERSION> -f Dockerfile .
+> docker buildx build . --builder=kube -t docker.lib.umd.edu/solr-textbook:VERSION --push
 ```
 
 where \<VERSION> is the Docker image version to use (typically the same as the

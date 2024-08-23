@@ -17,6 +17,8 @@
   <field name="year" type="int" indexed="true" stored="true" multiValued="false" />
   <field name="author" type="text_general" indexed="true" stored="true" multiValued="false" />
   <field name="alternate_isbns" type="text_general" indexed="true" stored="true" multiValued="true"/>
+  <field name="mms_id" type="text_general" indexed="true" stored="true" multiValued="true"/>
+  <field name="holdings_id" type="text_general" indexed="true" stored="true" multiValued="true"/>
   <field name="call_number" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="bar_code" type="text_general" indexed="true" stored="true" multiValued="true" />
   <field name="current_status" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -24,6 +26,7 @@
   <field name="umcp_copy" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="comment" type="string" indexed="false" stored="true" multiValued="true"/>
   <field name="test_notes" type="string" indexed="false" stored="true" multiValued="true"/>
+  <field name="branch_location" type="string" indexed="false" stored="true" multiValued="true"/>
 
   <!-- Facet Fields -->
   <field name="program" type="string" indexed="true" stored="true" required="true" multiValued="false" />
@@ -36,6 +39,8 @@
   <copyField source="author" dest="text" />
   <copyField source="isbn" dest="text" />
   <copyField source="alternate_isbns" dest="text" />
+  <copyField source="mms_id" dest="text" />
+  <copyField source="holdings_id" dest="text" />
   <copyField source="course" dest="text" />
   <copyField source="year" dest="text" />
   <copyField source="program" dest="text" />

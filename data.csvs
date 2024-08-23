@@ -1,5 +1,5 @@
 version 1.0
-@totalColumns 15
+@totalColumns 17
 UniqueID: notEmpty
 Course: notEmpty regex("[A-Z]{4} [0-9]{3}[A-Z]?( *\([0-9]{3}[A-Z]?(, * [0-9]{3}[A-Z]?)?\))?")
 Title: notEmpty
@@ -8,6 +8,7 @@ Year:
 Author:
 ISBN:
 "Alternate ISBNs":
+"MMS ID":
 "Call number":
 Barcode:
 "Current Status":
@@ -15,3 +16,4 @@ Barcode:
 "UMCP copy?":
 Notes:
 Comment:
+"Branch Location":

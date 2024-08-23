@@ -2,10 +2,6 @@
 
 ## Introduction
 
-**Note:** Previous versions of this repository were used as a Solr configuration
-directory on solr.lib.umd.edu. This repository has now been changed to support
-creating a Docker image containing the data.
-
 When making updates to the data or configuration, a new Docker image should
 be created.
 
@@ -13,9 +9,6 @@ be created.
 
 The "data.csv" file will be used to populate the Solr database. The "data.csv"
 file is generated from the "Top Textbooks" spreadsheet.
-
-The following steps for generating the "data.csv" from the Excel spreadsheet
-were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.edu/display/LIB/SolrDB+Project%3A+Textbook+Availability):
 
 1) Examine the delivered Top Textbooks Excel spreadsheet and look for data
    errors. For example, in the demo sheet, data for "Year" and "Edition" was
@@ -35,6 +28,7 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
      * Author
      * ISBN
      * Alternate ISBNs
+     * MMS ID
      * Call number
      * Barcode
      * Current Status
@@ -42,6 +36,7 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
      * UMCP copy?
      * Notes
      * Comment
+     * Branch Location
 
 2) Assuming all data is correct or fixed, export the spreadsheet to CSV and
   place somewhere easily accessible from the command line. For the export, I
@@ -55,7 +50,7 @@ were taken from [SolrDB Project: Textbook Availability](https://confluence.umd.e
   it with the following (assuming no change in fields):
 
   ```
-  uniqueid,course,title,edition,year,author,isbn,alternate_isbns,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,test_notes,comment
+  uniqueid,course,title,edition,year,author,isbn,alternate_isbns,mms_id,call_number,bar_code,current_status,new_returning_past_semester,umcp_copy,test_notes,comment
   ```
 
   Also do the following:

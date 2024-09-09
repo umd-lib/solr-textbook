@@ -1,5 +1,5 @@
 UniqueID,Course,Title,Edition,Year,Author,ISBN,Alternate ISBNs,MMS ID,Call number,Barcode,Current Status,New/Returning/Past Semester,UMCP copy?,Notes,Comment,Branch Location
-TopTextFall24.1,AASP 202,Black Culture and Black Consciousness : Afro-American Folk Thought from Slavery to Freedom,,1977,Lawrence W. Levine,9780195023749,,,AASP202/Black Culture,31430058260375,On Shelf,,N,,,CPMCK
+TopTextFall24.2,AASP 202,Black Culture and Black Consciousness : Afro-American Folk Thought from Slavery to Freedom,,1977,Lawrence W. Levine,9780195023749,,990034444000108238,AASP202/Black Culture,31430058260375,On Shelf,,N,,,CPMCK
 TopTextFall24.2,CMSC 132,Data Structures and Abstractions with Java,4th,2015,Carrano & Henry,9780133744057,9780133750263, 990047038430108238,CMSC132/Data Structures & Abstractions,31430058253180,On Shelf,,N,,,CPMCK
 TopTextFall24.3,BSCI 222,"Genetics, A Conceptual Approach, 4th ed.",4th,2010,Benjamin A. Pierce,9781429232500,, 990049444760108238,BSCI222/Genetics 4th,31430058254774,On Shelf,,N,,,CPMCK
 TopTextFall24.4,CCJS 105,On the Run,,2014,Alice Goffman,9780226136714,,31430058255540,CCJS105/On the Run,"31430058253289, 31430058255540",On Shelf,,N,,,CPMCK
